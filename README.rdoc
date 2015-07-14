@@ -10,6 +10,18 @@ Family card
 Corporate card
 Individual card
 
+Sign-in
+Sign-up
+Sign-out
+View cards
+View a card (detail)
+View accounts
+View an account (detail)
+Get a card
+Disaccociate from a card (i.e. give up the card)
+Assign family card
+Do corporate card management
+
 
 == README
 
