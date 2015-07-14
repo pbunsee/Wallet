@@ -1,0 +1,8 @@
+
+<% @users.each do |user| %>
+  <%= "#{user.firstname} #{user.lastname}" %>
+<% end %>
+
+
+<%= link_to 'View all cards', cards_path %>
+

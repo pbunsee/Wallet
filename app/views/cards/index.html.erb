@@ -1,0 +1,9 @@
+
+  <%= "card.number card.category card.credit_limit card.exp_mm card.exp_yy card.cvv " %>
+<% @cards.each do |card| %>
+  <%= "#{card.number} #{card.category}" #{card.credit_limit} #{card.exp_mm} #{card.exp_yy} #{card.cvv} " %>
+  <%= link_to 'View card detail', card_path(card.id) %>
+<% end %>
+
+
+
