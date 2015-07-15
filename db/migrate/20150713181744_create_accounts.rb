@@ -1,8 +1,9 @@
 class CreateAccounts < ActiveRecord::Migration
   def change
     create_table :accounts do |t|
-      t.string :type
-      t.decimal :balance
+      t.string :number
+      t.string :acctype
+      t.decimal :balance, :default => 0.0
       t.references :user
 
       t.timestamps null: false

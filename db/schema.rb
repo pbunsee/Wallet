@@ -14,20 +14,21 @@
 ActiveRecord::Schema.define(version: 20150714032849) do
 
   create_table "accounts", force: :cascade do |t|
-    t.string   "type"
-    t.decimal  "balance"
+    t.string   "number"
+    t.string   "acctype"
+    t.decimal  "balance",    default: 0.0
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "cards", force: :cascade do |t|
     t.string   "number"
     t.string   "category"
     t.decimal  "credit_limit"
-    t.integer  "exp_mm"
-    t.integer  "exp_yy"
+    t.date     "exp_date"
     t.integer  "cvv"
+    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -36,12 +37,13 @@ ActiveRecord::Schema.define(version: 20150714032849) do
     t.string   "description"
     t.decimal  "amount"
     t.string   "currency"
-    t.datetime "date"
+    t.datetime "transaction_date"
     t.datetime "post_date"
     t.string   "from_account"
     t.string   "to_account"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "account_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "user_cards", force: :cascade do |t|

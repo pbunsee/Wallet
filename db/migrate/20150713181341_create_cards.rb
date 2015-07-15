@@ -4,9 +4,9 @@ class CreateCards < ActiveRecord::Migration
       t.string :number
       t.string :category
       t.decimal :credit_limit
-      t.integer :exp_mm
-      t.integer :exp_yy
+      t.date :exp_date
       t.integer :cvv
+      t.references :user
 
       t.timestamps null: false
     end

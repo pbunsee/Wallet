@@ -4,10 +4,11 @@ class CreateTransactions < ActiveRecord::Migration
       t.string :description
       t.decimal :amount
       t.string :currency 
-      t.datetime :date 
+      t.datetime :transaction_date 
       t.datetime :post_date 
       t.string :from_account
       t.string :to_account
+      t.references :account
 
       t.timestamps null: false
     end

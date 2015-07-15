@@ -1,10 +1,10 @@
 
 
-<%= "card.number card.category card.credit_limit card.exp_mm card.exp_yy card.cvv " %><br>
+<%= "card.number card.category card.credit_limit card.exp_date card.cvv " %><br>
 <% @cards.each do |card| %>
   <div class='card'>
     <ul class='card-attributes'>
-  <%= "#{card.number} #{card.category} #{card.credit_limit} #{card.exp_mm} #{card.exp_yy} #{card.cvv} " %>
+  <%= "#{card.number} #{card.category} #{card.credit_limit} #{card.exp_date} #{card.cvv} " %>
   <%= link_to 'View card detail', card_path(card.id) %>
     </ul>
   </div>

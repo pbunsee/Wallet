@@ -10,17 +10,21 @@ Family card
 Corporate card
 Individual card
 
-Sign-in
-Sign-up
-Sign-out
-View cards
-View a card (detail)
+Account - held by individual or joint account or corporate/business master account & sub-accounts
+
+Interfaces for:
+- Sign-in
+- Sign-up
+- Sign-out
+- Add card
+- View cards
+- View a card (detail)
+Associate a user with a card
 View accounts
 View an account (detail)
-Get a card
-Disaccociate from a card (i.e. give up the card)
-Assign family card
-Do corporate card management
+Disassociate from a card (i.e. give up the card)
+Setup shared card - Assign family card
+Shared card with master corporate admin management - Do corporate card management
 
 
 == README
