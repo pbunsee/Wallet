@@ -3,11 +3,7 @@ class TransactionsController < ApplicationController
   def index
     if current_user
       @user = User.find current_user
-      @accounts = @user.accounts
-      #@account_transactions = Transaction.where(account_id: Account.where(user_id: @user.id))
-      #@card_transactions = Transaction.where(card_id: Card.where(user_id: @user.id))
-      
-     
+      @transactions = Transaction.all_of_user(@user)
     end
   end
 
@@ -35,7 +31,16 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:description, :amount, :currency, :transaction_date, :post_date, :from_account, :to_account, :account_id)
+    params.require(:transaction).permit(:description, 
+                                        :amount, 
+                                        :currency, 
+                                        :transaction_date, 
+                                        :post_date, 
+                                        :from_account, 
+                                        :to_account, 
+                                        :account_id, 
+                                        :associated_entity, 
+                                        :card_id)
   end
 
 end
