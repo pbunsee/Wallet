@@ -6,9 +6,10 @@ class CreateCards < ActiveRecord::Migration
       t.decimal :credit_limit
       t.date :exp_date
       t.integer :cvv
-      t.references :user
 
       t.timestamps null: false
+
+      t.index :number
     end
   end
 end

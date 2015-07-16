@@ -4,9 +4,10 @@ class CreateAccounts < ActiveRecord::Migration
       t.string :number
       t.string :acctype
       t.decimal :balance, :default => 0.0
-      t.references :user
 
       t.timestamps null: false
+
+      t.index :number
     end
   end
 end

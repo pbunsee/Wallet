@@ -1,9 +1,11 @@
 class AccountsController < ApplicationController
 
   def index
-    if current_user.present?
+    if current_user
       @user = User.find current_user
       @accounts = @user.accounts
+    else
+      @accounts = Account.all
     end
   end
 
@@ -18,12 +20,12 @@ class AccountsController < ApplicationController
   def create
     if current_user.present?
       @user = User.find current_user
-      @account = @user.accounts.new(account_params)
-      #@account.users << current_user
-    
+      @account = Account.new(account_params)
+      @account.users << current_user
+
       if @account.valid?
         @account.save!
-        flash[:alert] = "That worked!"
+        #redirect_to accounts_path
         redirect_to user_path(current_user)
       else
         flash[:alert] = "There was an error with your submission"

@@ -4,6 +4,7 @@ Account
 User
 #Profile - add later
 User_card
+User_account
 
 Type of credit cards
 Family card
@@ -19,9 +20,10 @@ Interfaces for:
 - Add card
 - View cards
 - View a card (detail)
-Associate a user with a card
-View accounts
+- View accounts
 View an account (detail)
+- Associate a user with a card
+- Associate a user with an account
 Disassociate from a card (i.e. give up the card)
 Setup shared card - Assign family card
 Shared card with master corporate admin management - Do corporate card management

@@ -3,7 +3,7 @@
 <% @transactions.each do |transaction| %>
   <div class='transaction'>
     <ul class='transaction-attributes'>
-  <%= "#{transaction.description} #{transaction.amount} #{transaction.currency} #{transaction.transaction_date} #{transaction.post_date} #{transaction.from_account} #{transaction.to_account} #{transaction.account_id} " %>
+  <%= "#{transaction.description} #{transaction.amount} #{transaction.currency} #{transaction.transaction_date} #{transaction.post_date} #{transaction.from_account} #{transaction.to_account} #{transaction.account_id} #{transaction.card_id} #{transaction.associated_entity} " %>
   <%= link_to 'View transaction detail', transaction_path(transaction.id) %>
     </ul>
   </div>

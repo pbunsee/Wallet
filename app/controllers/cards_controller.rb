@@ -1,7 +1,13 @@
 class CardsController < ApplicationController
 
   def index
-    @cards = Card.all
+    #@cards = Card.all
+    if current_user
+      @user = User.find current_user
+      @cards = @user.cards
+    else
+      @cards = Card.all
+    end
   end
 
   def new

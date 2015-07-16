@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716040905) do
+ActiveRecord::Schema.define(version: 20150716060717) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "number"
     t.string   "acctype"
     t.decimal  "balance",    default: 0.0
-    t.integer  "user_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
+
+  add_index "accounts", ["number"], name: "index_accounts_on_number"
 
   create_table "cards", force: :cascade do |t|
     t.string   "number"
@@ -28,10 +29,11 @@ ActiveRecord::Schema.define(version: 20150716040905) do
     t.decimal  "credit_limit"
     t.date     "exp_date"
     t.integer  "cvv"
-    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  add_index "cards", ["number"], name: "index_cards_on_number"
 
   create_table "transactions", force: :cascade do |t|
     t.string   "description"
@@ -51,12 +53,23 @@ ActiveRecord::Schema.define(version: 20150716040905) do
   add_index "transactions", ["account_id"], name: "index_transactions_on_account_id"
   add_index "transactions", ["card_id"], name: "index_transactions_on_card_id"
 
+  create_table "user_accounts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "account_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_accounts", ["account_id", "user_id"], name: "index_user_accounts_on_account_id_and_user_id"
+
   create_table "user_cards", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "card_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "user_cards", ["card_id", "user_id"], name: "index_user_cards_on_card_id_and_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"

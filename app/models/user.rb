@@ -10,8 +10,9 @@ class User < ActiveRecord::Base
 
   validates_confirmation_of :password
 
-  has_many :accounts
   has_many :user_cards
   has_many :cards, through: :user_cards
+  has_many :user_accounts
+  has_many :accounts, through: :user_accounts
   
 end

@@ -1,10 +1,13 @@
 class TransactionsController < ApplicationController
 
   def index
-    if current_user.present?
+    if current_user
       @user = User.find current_user
       @accounts = @user.accounts
-      @transactions = Transaction.where(account_id: Account.where(user_id: @user.id))
+      #@account_transactions = Transaction.where(account_id: Account.where(user_id: @user.id))
+      #@card_transactions = Transaction.where(card_id: Card.where(user_id: @user.id))
+      
+     
     end
   end
 
