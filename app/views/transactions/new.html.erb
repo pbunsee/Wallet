@@ -1,0 +1,21 @@
+<% if @transaction.errors.any? %>
+  <ul>
+    <% @transaction.errors.full_messages.each do |msg| %>
+      <li> <%= msg %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<%= form_for @transaction do |f| %>
+  <%= f.text_field :description , placeholder: 'Description' %><br>
+  <%= f.text_field :amount , placeholder: 'Amount' %><br>
+  <%= f.text_field :currency , placeholder: 'Currency' %><br>
+  <%= f.text_field :transaction_date , placeholder: 'Transaction Date' %><br>
+  <%= f.text_field :post_date , placeholder: 'Post Date' %><br>
+  <%= f.text_field :from_account , placeholder: 'From Account' %><br>
+  <%= f.text_field :to_account , placeholder: 'To Account' %><br>
+  <%= f.text_field :account_id , placeholder: 'Account ID' %><br>
+  <%= f.submit 'Add Transaction' %>
+<% end %>
+

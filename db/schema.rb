@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714032849) do
+ActiveRecord::Schema.define(version: 20150716040905) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "number"
@@ -42,9 +42,14 @@ ActiveRecord::Schema.define(version: 20150714032849) do
     t.string   "from_account"
     t.string   "to_account"
     t.integer  "account_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "associated_entity", limit: 50
+    t.integer  "card_id"
   end
+
+  add_index "transactions", ["account_id"], name: "index_transactions_on_account_id"
+  add_index "transactions", ["card_id"], name: "index_transactions_on_card_id"
 
   create_table "user_cards", force: :cascade do |t|
     t.integer  "user_id"

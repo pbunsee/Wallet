@@ -6,7 +6,6 @@ class Card < ActiveRecord::Base
     #:validate_card_number
 
   before_save :set_category
-  before_save :testthis
 
   has_many :user_cards
   has_many :users, through: :user_cards
