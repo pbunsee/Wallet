@@ -6,9 +6,7 @@
   </ul>
 <% end %>
 
-
-
-<%= form_for(user_card_transaction_path(@user, @card, @transaction), :html => {:id => 'new_user_card_transaction', :class => 'new_user_card_transaction'}) do |f| %>
+<%= form_for @transaction, url: user_account_transactions_path(@user.id, @account.id), html: {method: "create"}  do |f| %>
   <%= f.text_field :description , placeholder: 'Description' %><br>
   <%= f.text_field :amount , placeholder: 'Amount' %><br>
   <%= f.text_field :currency , placeholder: 'Currency' %><br>
