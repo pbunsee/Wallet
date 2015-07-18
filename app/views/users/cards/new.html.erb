@@ -1,0 +1,19 @@
+<% if @card.errors.any? %>
+  <ul>
+    <% @card.errors.full_messages.each do |msg| %>
+      <li> <%= msg %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<%= form_for @card do |f| %>
+  <%= f.text_field :number, placeholder: 'Card Number' %><br>
+  <%= f.text_field :category, placeholder: 'Category' %><br>
+  <%= f.text_field :credit_limit, placeholder: 'Credit Limit' %><br>
+  <%= f.date_field :exp_date, placeholder: 'Expiration Date' %><br>
+  <%= f.text_field :cvv, placeholder: 'CVV' %><br>
+  <%= f.submit 'Add Card' %>
+<% end %>
+
+      

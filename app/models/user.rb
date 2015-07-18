@@ -14,5 +14,8 @@ class User < ActiveRecord::Base
   has_many :cards, through: :user_cards
   has_many :user_accounts
   has_many :accounts, through: :user_accounts
-  
+
+  #  omitted "dependent: :destroy" because accounts may be held jointly by spouse or business partners and a card may be
+  #  issued to multiple members of a family or business employees
+
 end

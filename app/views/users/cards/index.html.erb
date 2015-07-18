@@ -1,0 +1,14 @@
+
+
+<%= "card.number card.category card.credit_limit card.exp_date card.cvv " %><br>
+<% @cards.each do |card| %>
+  <div class='card'>
+    <ul class='card-attributes'>
+  <%= "#{card.number} #{card.category} #{card.credit_limit} #{card.exp_date} #{card.cvv} " %>
+  <%= link_to 'View card detail', user_cards_path(card.id) %>
+      <%= link_to 'Transactions', user_card_transactions_path(current_user, card.id) %> 
+    </ul>
+  </div>
+<% end %>
+
+

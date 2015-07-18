@@ -1,6 +1,10 @@
 
 <h1> Show page for user </h1>
-  <div>
+  <div class="user_header">
     <%= @user.firstname %>
-    <%= link_to 'Cards', user_path(@user) %>
+    <div> show list of accounts</div>
+    <%= link_to 'Cards', user_cards_path(@user) %>
+    <div> show list of cards</div>
+    <%= link_to 'Accounts', user_accounts_path(@user) %>
   </div>
+

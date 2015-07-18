@@ -1,0 +1,9 @@
+<div class=<%= "card #{@card.category}"%> >
+  <ul class='card-attributes'>
+    <li> <%= @card.category %> </li>
+    <li> <%= @card.number %> </li>
+    <li> <%= @card.cvv %> </li>
+    <li> Expires: <%= "#{@card.exp_date}" %> </li>
+    <li> <%= @card.credit_limit %> </li>
+  </ul>
+</div>

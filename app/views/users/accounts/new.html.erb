@@ -1,0 +1,11 @@
+
+<%= form_for @account do |f| %>
+  <%= f.label :number %>
+  <%= f.text_field :number %>
+  <%= f.label :acctype %>
+  <%= f.select :acctype, ['Cheque','Savings','CD']  %>
+  <%= f.label :balance %>
+  <%= f.text_field :balance %>
+  <%= f.submit 'Add Account' %>
+<% end %>
+

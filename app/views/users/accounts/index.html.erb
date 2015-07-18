@@ -1,0 +1,11 @@
+
+<% @accounts.each do |account| %>
+  <div class="<%= "account #{account.acctype.downcase.gsub(/\s/,'')}"%>" >
+    <ul class='account-attributes'>
+      <li> <%= account.acctype %> </li>
+      <li> <%= account.number %> </li>
+      <li> <%= account.balance %> </li>
+      <li> <%= link_to 'Transactions', user_account_transactions_path(current_user, account.id) %> </li>
+    </ul>
+  </div>
+<% end %>

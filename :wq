@@ -7,7 +7,8 @@ class SessionsController < ApplicationController
       if user.password == params[:password]
         session[:user_id] = user.id
         flash[:welcome] = "Welcome!"
-        redirect_to user_path(user.id)
+        redirect_to users_path
+        #redirect_to users_path(user.id)
       end
     else
       flash[:alert] = "Invalid Credentials"

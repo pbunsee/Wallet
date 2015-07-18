@@ -1,0 +1,22 @@
+<% if @transaction.errors.any? %>
+  <ul>
+    <% @transaction.errors.full_messages.each do |msg| %>
+      <li> <%= msg %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @transaction, url: user_card_transactions_path(@user.id, @card.id), html: {method: "create"}  do |f| %>
+  <%= f.text_field :description , placeholder: 'Description' %><br>
+  <%= f.text_field :amount , placeholder: 'Amount' %><br>
+  <%= f.text_field :currency , placeholder: 'Currency' %><br>
+  <%= f.text_field :transaction_date , placeholder: 'Transaction Date' %><br>
+  <%= f.text_field :post_date , placeholder: 'Post Date' %><br>
+  <%= f.text_field :from_account , placeholder: 'From Account' %><br>
+  <%= f.text_field :to_account , placeholder: 'To Account' %><br>
+  <%= f.text_field :account_id , placeholder: 'Account ID' %><br>
+  <%= f.text_field :card_id , placeholder: 'Card ID' %><br>
+  <%= f.text_field :associated_entity , placeholder: 'Associated Entity - card or account' %><br>
+  <%= f.submit 'Add Transaction' %>
+<% end %>
+
