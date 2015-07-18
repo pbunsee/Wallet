@@ -6,8 +6,7 @@
   </ul>
 <% end %>
 
-
-<%= form_for @card do |f| %>
+<%= form_for @card, url: user_cards_path(@user.id), html: {method: "create"} do |f| %>
   <%= f.text_field :number, placeholder: 'Card Number' %><br>
   <%= f.text_field :category, placeholder: 'Category' %><br>
   <%= f.text_field :credit_limit, placeholder: 'Credit Limit' %><br>

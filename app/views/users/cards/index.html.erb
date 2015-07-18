@@ -1,14 +1,19 @@
-
-
-<%= "card.number card.category card.credit_limit card.exp_date card.cvv " %><br>
 <% @cards.each do |card| %>
-  <div class='card'>
-    <ul class='card-attributes'>
-  <%= "#{card.number} #{card.category} #{card.credit_limit} #{card.exp_date} #{card.cvv} " %>
+<div class=<%= "card #{card.category}"%> >
+  <ul class='card-attributes'>
+    <li> <%= card.number %> </li>
+    <li> <%= card.category %> </li>
+    <li> <%= card.credit_limit %> </li>
+    <li> <%= card.exp_date %> </li>
+    <li> <%= card.cvv %> </li>
+    <li> <%= card.created_at %> </li>
+    <li> <%= card.updated_at %> </li>
+  </ul>
   <%= link_to 'View card detail', user_cards_path(card.id) %>
-      <%= link_to 'Transactions', user_card_transactions_path(current_user, card.id) %> 
-    </ul>
-  </div>
+  <%= link_to 'Transactions', user_card_transactions_path(current_user, card.id) %> 
+</div>
+
+
 <% end %>
 
 

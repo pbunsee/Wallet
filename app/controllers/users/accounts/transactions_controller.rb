@@ -60,13 +60,16 @@ class Users::Accounts::TransactionsController < ApplicationController
     params.require(:transaction).permit(:description, 
                                         :amount, 
                                         :currency, 
+                                        :transaction_type, 
+                                        :transaction_status,
                                         :transaction_date, 
                                         :post_date, 
-                                        :from_account, 
-                                        :to_account, 
+                                        :merchant, 
                                         :account_id, 
-                                        :associated_entity, 
+                                        :created_at, 
+                                        :updated_at, 
+                                        :associated_entity,
                                         :card_id)
   end
-
 end
+

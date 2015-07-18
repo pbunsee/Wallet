@@ -11,10 +11,12 @@ class Users::CardsController < ApplicationController
   end
 
   def new
+    @user = User.find current_user
     @card = Card.new
   end
 
   def create
+    @user = User.find current_user
     @card = Card.new(card_params)
     @card.users << current_user
 

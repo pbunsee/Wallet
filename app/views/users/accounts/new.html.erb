@@ -1,6 +1,13 @@
+<% if @account.errors.any? %>
+  <ul>
+    <% @account.errors.full_messages.each do |msg| %>
+      <li> <%= msg %> </li>
+    <% end %>
+  </ul>
+<% end %>
 
-<%= form_for @account do |f| %>
-  <%= f.label :number %>
+<%= form_for @account, url: user_accounts_path(@user.id), html: {method: "create"} do |f| %>
+  <%= f.label :number, placeholder: 'Account Number' %><br>
   <%= f.text_field :number %>
   <%= f.label :acctype %>
   <%= f.select :acctype, ['Cheque','Savings','CD']  %>

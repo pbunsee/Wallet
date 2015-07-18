@@ -36,17 +36,18 @@ ActiveRecord::Schema.define(version: 20150716060717) do
   add_index "cards", ["number"], name: "index_cards_on_number"
 
   create_table "transactions", force: :cascade do |t|
-    t.string   "description"
+    t.string   "description",        limit: 80
     t.decimal  "amount"
-    t.string   "currency"
+    t.string   "currency",           limit: 3
+    t.string   "transaction_type",   limit: 50
+    t.string   "transaction_status", limit: 50
     t.datetime "transaction_date"
     t.datetime "post_date"
-    t.string   "from_account"
-    t.string   "to_account"
+    t.string   "merchant"
     t.integer  "account_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.string   "associated_entity", limit: 50
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "associated_entity",  limit: 50
     t.integer  "card_id"
   end
 

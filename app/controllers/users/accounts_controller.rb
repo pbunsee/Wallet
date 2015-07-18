@@ -10,6 +10,7 @@ class Users::AccountsController < ApplicationController
   end
 
   def new
+    @user = User.find current_user
     @account = Account.new
   end
 

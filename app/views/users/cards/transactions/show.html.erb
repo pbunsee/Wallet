@@ -1,9 +1,18 @@
 <div class=<%= "transaction #{@transaction.id}"%> >
   <ul class='transaction-attributes'>
-    <li> <%= @transaction.id %> </li>
-    <li> <%= @transaction.description %> </li>
-    <li> <%= @transaction.card_id %> </li>
-    <li> <%= @transaction.account_id %> </li>
-    <li> <%= @transaction.associated_entity %> </li>
+    <li>  <%= @transaction.id %></li>
+    <li>  <%= @transaction.description %></li>
+    <li>  <%= @transaction.amount %></li>
+    <li>  <%= @transaction.currency %></li>
+    <li>  <%= @transaction.transaction_type %></li>
+    <li>  <%= @transaction.transaction_status %></li>
+    <li>  <%= @transaction.transaction_date %></li>
+    <li>  <%= @transaction.post_date %></li>
+    <li>  <%= @transaction.merchant %></li>
+    <li>  <%= @transaction.created_at %></li>
+    <li>  <%= @transaction.updated_at %></li>
+    <li>  <%= @transaction.associated_entity %></li>
+    <li>  <%= @transaction.card_id %></li>
+    <li>  <%= @transaction.account_id %></li>
   </ul>
 </div>
