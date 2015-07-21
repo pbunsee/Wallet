@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function() {
+  $('.dispute-icon').on('ajax:complete', function(e) {
+    $('body').css('background-color', 'red');
+  });
+});

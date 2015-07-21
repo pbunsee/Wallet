@@ -1,0 +1,11 @@
+
+banking:
+  date:
+    formats:
+      short: "%e %b %Y"
+  time:
+    formats:
+      short: "%H"
+  datetime:
+    formats:
+      short: "%e %b %Y %H"

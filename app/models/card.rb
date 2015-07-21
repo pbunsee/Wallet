@@ -14,6 +14,8 @@ class Card < ActiveRecord::Base
   private
    
    def extract_exp_mm_yy
+     # can attach the error to local or the instance variable - the error gets added to the error collection anyway
+
      # validate month
      exp_mm = (self.exp_date.strftime("%m")).to_i
      if exp_mm.between?(1, 12) 
@@ -21,12 +23,10 @@ class Card < ActiveRecord::Base
        exp_yy = (self.exp_date.strftime("%Y")).to_i
        if !exp_yy.between?(2015, 2030) 
          errors.add(:exp_date, "Invalid expiry year")
-         # can also attach the error to local variable - the error gets added to the error collection anyway
          # errors.add(:exp_mm, "Invalid expiry year")
        end
      else
        errors.add(:exp_date, "Invalid expiry month")
-       # can also attach the error to local variable - the error gets added to the error collection anyway
        # errors.add(:exp_yy, "Invalid expiry month")
      end
    end

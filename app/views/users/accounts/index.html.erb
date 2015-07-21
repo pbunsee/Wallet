@@ -1,11 +1,12 @@
+<table class="account"> 
+  <th>Account Type</th>
+  <th>Account Number </th>
+  <th>Balance</th>
+  <th>Transactions</th>
 
-<% @accounts.each do |account| %>
-  <div class="<%= "account #{account.acctype.downcase.gsub(/\s/,'')}"%>" >
-    <ul class='account-attributes'>
-      <li> <%= account.acctype %> </li>
-      <li> <%= account.number %> </li>
-      <li> <%= account.balance %> </li>
-      <li> <%= link_to 'Transactions', user_account_transactions_path(current_user, account.id) %> </li>
-    </ul>
-  </div>
-<% end %>
+  <% @accounts.each do |account| %>
+    <%= render partial: 'users/accounts/account_detail', locals: {account: account} %>
+  <% end %>
+</table> 
+
+<%= link_to 'Add new account', new_user_account_path(current_user) %> 

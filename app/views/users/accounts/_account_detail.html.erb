@@ -1,0 +1,10 @@
+
+  <tr class=<%= "account-attributes-#{account.number}" %>>
+    <td> <%= account.acctype %> </td>
+    <td> <%= account.number %> </td>
+    <td> <%= account.balance %> </td>
+    <td> <%= link_to image_tag('more_info.png'), user_account_transactions_path(current_user, account.id) %> </td>
+  </tr>
+
+     
+

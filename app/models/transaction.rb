@@ -21,9 +21,4 @@ class Transaction < ActiveRecord::Base
 
   scope :per_date_range, lambda { where("transaction_date between ? and ?", :start_date, :end_date) } 
 
-  #scope :per_account, lambda { where(associated_entity: "account").group("account_id") } 
-
-  #scope :per_card, lambda { where(associated_entity: "card").group("card_id") } 
-
-  #scope :per_entity, lambda { group("associated_entity").group("account_id") } 
 end

@@ -1,0 +1,19 @@
+  <tr class=<%= "transaction-attributes-#{transaction.id}" %>>
+    <td> <%= transaction.transaction_date %></td>
+    <td> <%= transaction.merchant %></td>
+    <td> <%= transaction.description %></td>
+    <td> <%= transaction.currency %></td>
+    <td> 
+      <% if transaction.transaction_type = "withdrawal" %>
+        <%= render text: "-" %>
+      <% end %>
+      <%= transaction.amount %>
+    </td>
+    <% if @card %>
+    <td><%= link_to image_tag('dispute_icon.png'), dispute_link_path(transaction.id), class: 'dispute-icon', remote: true, method: :get, data: {confirm: "Are you sure?"}  %></td> 
+    <td id=<%= "msg-#{transaction.id}" %>></td>
+    <% end %>
+  </tr>
+
+
+  

@@ -1,10 +1,44 @@
 
-<h1> Show page for user </h1>
-  <div class="user_header">
-    <%= @user.firstname %>
-    <div> show list of accounts</div>
-    <%= link_to 'Cards', user_cards_path(@user) %>
-    <div> show list of cards</div>
-    <%= link_to 'Accounts', user_accounts_path(@user) %>
+<div id="wrapper">
+  <h1><%= "Welcome #{@user.firstname} #{@user.lastname}!" %></h1>
+
+  <div id="outgoing">
+    <div id="current-payment-sources">
+      <h2><%= "Current payment sources" %></h2>
+      <div id="list-cards">
+        <%= link_to 'Cards', user_cards_path(@user), id: 'list-cards', class: 'menu-item' %>
+      </div>
+      <div id="list-accounts"> 
+        <%= link_to 'Accounts', user_accounts_path(@user), id: 'list-accounts', class: 'menu-item' %>
+      </div>
+    </div>
+    <div id="add-payment-sources">
+      <h2><%= "Add payment sources" %></h2>
+      <%= link_to 'Add new card', new_user_card_path(current_user), class: 'menu-item' %> <br>
+      <%= link_to 'Add new account', new_user_account_path(current_user), class: 'menu-item' %> 
+    </div>
   </div>
 
+  <div id="incoming">
+    <div id="pay">
+      <h2><%= "Payments" %></h2>
+      <div id="make-payment">
+        <a href="#", class='menu-item'>Make payment</a>
+      </div>
+      <div id="overdue-payments">
+        <a href="#", class='menu-item'>Overdue payments</a>
+      </div>
+    </div>
+    <div id="offers">
+      <h2><%= "Offers" %></h2>
+      <a href="#", class='menu-item'>Saved offers</a> <br>
+      <a href="#", class='menu-item'>New offers</a>
+    </div>
+  </div>
+
+</div>
+
+
+
+ 
+ 

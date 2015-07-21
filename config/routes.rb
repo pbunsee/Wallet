@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   delete '/logout' => 'sessions#destroy'
 
+  get '/dispute_transaction/:id' => 'users/cards/transactions#dispute', as: 'dispute_link'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

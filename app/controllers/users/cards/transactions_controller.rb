@@ -1,5 +1,17 @@
 class Users::Cards::TransactionsController < ApplicationController
 
+  def dispute
+    @transaction = Transaction.find(params[:id])
+    puts " what is transaction value : #{@transaction.inspect}"
+    respond_to do |format|
+      format.js do
+        #update db status flag
+        @response = "msg-#{@transaction.id}"
+    puts " what is response value : #{@response.inspect}"
+      end
+    end
+  end
+
   def index
     puts "where am i Users Cards Transactions -index route  TransactionController"
     puts "params.inspect #{params.inspect}"
@@ -27,21 +39,15 @@ class Users::Cards::TransactionsController < ApplicationController
     if params[:card_id].present?
       @card = Card.find params[:card_id]
     end
-    puts "where am i  Users Cards Transactions-new route  TransactionController"
     @transaction = Transaction.new
-    puts "@transaction #{@transaction.inspect} after Transaction.new in NEW"
   end
 
   def create
-    puts "where am i  Users Cards Transactions-create route  TransactionController"
     @transaction = Transaction.new(transaction_params)
     #@transaction.users << current_user  transaction belongs to account
 
-    puts "@transaction #{@transaction} #{@transaction.inspect} after Transaction.new in create"
     if @transaction.valid?
       @transaction.save!
-    puts "@transaction #{@transaction} #{@transaction.inspect} after Transaction.save in create"
-      #redirect_to user_card_transactions_path(current_user, params[:card_id])
       redirect_to user_card_transactions_path(current_user, params[:card_id])
     else
       flash[:alert] = "There was an error with your submission"

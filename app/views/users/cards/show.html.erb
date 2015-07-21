@@ -1,11 +1,1 @@
-<div class=<%= "card #{@card.category}"%> >
-  <ul class='card-attributes'>
-    <li> <%= @card.number %> </li>
-    <li> <%= @card.category %> </li>
-    <li> <%= @card.credit_limit %> </li>
-    <li> <%= @card.exp_date %> </li>
-    <li> <%= @card.cvv %> </li>
-    <li> <%= @card.created_at %> </li>
-    <li> <%= @card.updated_at %> </li>
-  </ul>
-</div>
+    <%= render partial: 'shared/card_master', locals: {card: @card} %>

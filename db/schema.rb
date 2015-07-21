@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716060717) do
+ActiveRecord::Schema.define(version: 20150720145051) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "number"
@@ -74,13 +74,14 @@ ActiveRecord::Schema.define(version: 20150716060717) do
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
-    t.string   "password"
     t.string   "email"
     t.string   "phone"
     t.string   "firstname"
     t.string   "lastname"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.text     "password_salt"
+    t.text     "password_hash"
   end
 
 end

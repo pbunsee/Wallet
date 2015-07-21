@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
- def new
-    session.clear
+  def new
     @user = User.new
   end
 
@@ -11,8 +10,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create user_params
-    if @user.valid?
+    @user = User.new user_params
+    if @user.save
       flash[:notice] = "Signed up successfully!"
       redirect_to users_path
     else
@@ -29,7 +28,6 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
   end
 
-
   private
 
   def user_params
@@ -37,9 +35,9 @@ class UsersController < ApplicationController
                                  :firstname,
                                  :lastname,
                                  :phone,
-                                 :password,
-                                 :email,
-                                 :password_confirmation)
+                                 :password_salt,
+                                 :password_hash,
+                                 :email)
   end
 
 end

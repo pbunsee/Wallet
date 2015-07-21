@@ -1,11 +1,9 @@
 
 <% @users.each do |user| %>
-  <div class="userline">
+  <div class="list-customers">
   <%= "#{user.firstname} #{user.lastname}" %>
   <%= link_to 'View all cards', user_cards_path(user.id) %>
   <%= link_to 'View all accounts', user_accounts_path(user.id) %> <br>
   </div>
 <% end %>
-
-
 
