@@ -1,0 +1,38 @@
+
+body { 
+  padding-top: 70px; 
+}
+
+nav {
+  padding-top: 10px;
+  font-size: 1.2em;
+}
+
+.flash {
+  margin-top:0;
+  padding-top: 0px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+.notice {
+  background: green;
+  color: white;
+}
+
+.alert {
+  background: rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.input-form {
+  width: 30%;
+  height: 40%;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}

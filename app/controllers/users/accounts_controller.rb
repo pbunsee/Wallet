@@ -44,4 +44,5 @@ class Users::AccountsController < ApplicationController
   def account_params
     params.require(:account).permit(:number, :acctype, :balance)
   end
+
 end

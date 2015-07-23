@@ -1,18 +1,38 @@
-<% if @card.errors.any? %>
-  <ul>
-    <% @card.errors.full_messages.each do |msg| %>
-      <li> <%= msg %> </li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="input-form">
+  <% if @card.errors.any? %>
+    <ul>
+      <% @card.errors.full_messages.each do |msg| %>
+        <li> <%= msg %> </li>
+      <% end %>
+    </ul>
+  <% end %>
 
-<%= form_for @card, url: user_cards_path(@user.id), html: {method: "create"} do |f| %>
-  <%= f.text_field :number, placeholder: 'Card Number' %><br>
-  <%= f.text_field :category, placeholder: 'Category' %><br>
-  <%= f.text_field :credit_limit, placeholder: 'Credit Limit' %><br>
-  <%= f.date_field :exp_date, placeholder: 'Expiration Date' %><br>
-  <%= f.text_field :cvv, placeholder: 'CVV' %><br>
-  <%= f.submit 'Add Card' %>
-<% end %>
+  <%= form_for @card, url: user_cards_path(@user.id), html: {method: "create"} do |f| %>
+  <h2>Add Card</h2>
+  <div class="form-group">
+    <%= f.label 'Card Number' %>
+    <%= f.text_field :number, placeholder: 'Card Number', class: 'form-control' %><br>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Category' %>
+    <%= select_tag(:category, options_for_select([['American Express', 1], ['Discover', 2], ['Mastercard', 3], ['VISA', 4]]), class: 'form-control') %><br>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Credit Limit' %>
+    <%= f.text_field :credit_limit, placeholder: 'Credit Limit', class: 'form-control' %><br>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Expiration Date' %>
+    <%= f.date_field :exp_date, placeholder: 'Expiration Date', class: 'form-control' %><br>
+  </div>
+  <div class="form-group">
+    <%= f.label 'CVV' %>
+    <%= f.text_field :cvv, placeholder: 'CVV', class: 'form-control' %><br>
+  </div>
+  <div class="btn btn-default">
+    <%= f.submit 'Add Card' %>
+  </div>
+  <% end %>
+</div>
 
       

@@ -1,7 +1,6 @@
 class Users::CardsController < ApplicationController
 
   def index
-    #@cards = Card.all
     if current_user
       @user = User.find current_user
       @cards = @user.cards
@@ -16,16 +15,18 @@ class Users::CardsController < ApplicationController
   end
 
   def create
-    @user = User.find current_user
-    @card = Card.new(card_params)
-    @card.users << current_user
+    if current_user.present?
+      @user = User.find current_user
+      @card = Card.new(card_params)
+      @card.users << current_user
 
-    if @card.valid?
-      @card.save!
-      redirect_to user_cards_path
-    else
-      flash[:alert] = "There was an error with your submission"
-      render :new
+      if @card.valid?
+        @card.save!
+        redirect_to user_cards_path
+      else
+        flash[:alert] = "There was an error with your submission"
+        render :new
+      end
     end
   end
 

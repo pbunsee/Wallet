@@ -4,7 +4,7 @@
 
   <div id="outgoing">
     <div id="current-payment-sources">
-      <h2><%= "Current payment sources" %></h2>
+      <h4><%= "Current payment sources" %></h4>
       <div id="list-cards">
         <%= link_to 'Cards', user_cards_path(@user), id: 'list-cards', class: 'menu-item' %>
       </div>
@@ -13,7 +13,7 @@
       </div>
     </div>
     <div id="add-payment-sources">
-      <h2><%= "Add payment sources" %></h2>
+      <h4><%= "Add payment sources" %></h4>
       <%= link_to 'Add new card', new_user_card_path(current_user), class: 'menu-item' %> <br>
       <%= link_to 'Add new account', new_user_account_path(current_user), class: 'menu-item' %> 
     </div>
@@ -21,7 +21,7 @@
 
   <div id="incoming">
     <div id="pay">
-      <h2><%= "Payments" %></h2>
+      <h4><%= "Payments" %></h4>
       <div id="make-payment">
         <a href="#", class='menu-item'>Make payment</a>
       </div>
@@ -30,7 +30,7 @@
       </div>
     </div>
     <div id="offers">
-      <h2><%= "Offers" %></h2>
+      <h4><%= "Offers" %></h4>
       <a href="#", class='menu-item'>Saved offers</a> <br>
       <a href="#", class='menu-item'>New offers</a>
     </div>

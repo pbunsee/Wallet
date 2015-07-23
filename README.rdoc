@@ -14,14 +14,14 @@ Individual card
 Account - held by individual or joint account or corporate/business master account & sub-accounts
 
 Interfaces for:
-- Sign-in
-- Sign-up
+- Sign-in - using BCrypt
+- Sign-up - using BCrypt
 - Sign-out
 - Add card
 - View cards
 - View a card (detail)
 - View accounts
-View an account (detail)
+- View an account (detail)
 - Associate a user with a card
 - Associate a user with an account
 Disassociate from a card (i.e. give up the card)

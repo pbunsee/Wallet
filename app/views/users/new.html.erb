@@ -1,20 +1,59 @@
-<% if @user.errors.any? %>
-  <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li> <%= msg %> </li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="input-form">
+  <% if @user.errors.any? %>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li> <%= msg %> </li>
+      <% end %>
+    </ul>
+  <% end %>
 
-<%= form_for @user do |f| %>
-  <%= f.text_field :username, placeholder: 'Username' %><br>
-  <%= f.text_field :firstname, placeholder: 'First Name' %><br>
-  <%= f.text_field :lastname, placeholder: 'Last Name' %><br>
-  <%= f.text_field :email, placeholder: 'Email' %><br>
-  <%= f.text_field :phone, placeholder: 'Phone' %><br>
-  <%= f.password_field :password, placeholder: 'Password' %><br>
-  <%= f.password_field :password_confirmation, placeholder: 'Confirm password' %><br>
-  <%= f.submit 'Sign Up' %>
-<% end %>
-
+  <%= form_for @user, class: 'form-horizontal' do |f| %>
+    <h2>Sign Up</h2>
+    <div class="form-group">
+      <%= f.label 'Username', class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :username, placeholder: 'Username', class: 'form-control' %><br>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label 'First Name', class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :firstname, placeholder: 'First Name', class: 'form-control' %><br>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label 'Last Name', class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :lastname, placeholder: 'Last Name', class: 'form-control' %><br>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label 'Email', class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :email, placeholder: 'Email', class: 'form-control' %><br>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label 'Phone', class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :phone, placeholder: 'Phone', class: 'form-control' %><br>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label 'Password', class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.password_field :password, placeholder: 'Password', class: 'form-control' %><br>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label 'Confirm Password', class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.password_field :password_confirmation, placeholder: 'Confirm password', class: 'form-control' %><br>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.submit 'Sign Up', class: 'btn btn-default' %>
+    </div>
+  <% end %>
+</div>
 

@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Signed up successfully!"
       redirect_to users_path
     else
-      flash[:alert] = "Problems reported - refer to exceptions below."
+      flash[:alert] = "Error signing up"
       render :new
     end
   end
