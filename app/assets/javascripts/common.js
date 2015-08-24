@@ -43,5 +43,13 @@ $(document).on('ready page:load',function(){
   $('.dispute-icon').on('ajax:complete', function(e) {
     //$('body').css('background-color', 'red');
   });
+
+  $('.offers').on('click', function(e) {
+    alert("Feature not implemented yet.");
+  });
+
+  $('.payments').on('click', function(e) {
+    alert("Feature not implemented yet.");
+  });
 });
 

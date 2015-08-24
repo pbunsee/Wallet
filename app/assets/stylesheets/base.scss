@@ -43,7 +43,15 @@ h2 {
 
 table td a.icon {
   display: image;
-  padding-left: 30%;
   cursor: pointer;
+}
+
+h1, #expenditure-title {
+  text-align: center;
+}
+
+svg {
+  display: block;
+  margin: auto;
 }
 

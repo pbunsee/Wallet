@@ -10,7 +10,7 @@
       <%= transaction.amount %>
     </td>
     <% if @card %>
-    <td><div class="innerWrapper"><%= link_to image_tag('dispute_icon.png'), dispute_link_path(transaction.id), class: 'dispute-icon', remote: true, method: :get, data: {confirm: "Are you sure?"}  %></div></td> 
+    <td><div id="dispute", class="innerWrapper"><%= link_to image_tag('dispute_icon.png'), dispute_link_path(transaction.id), class: 'dispute-icon', remote: true, method: :get, data: {confirm: "Are you sure?"}  %></div></td> 
     <td id=<%= "msg-#{transaction.id}" %>> <%= transaction.transaction_status %> </td>
     <% end %>
   </tr>
