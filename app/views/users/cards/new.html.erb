@@ -7,30 +7,56 @@
     </ul>
   <% end %>
 
-  <%= form_for @card, url: user_cards_path(@user.id), html: {method: "create"} do |f| %>
-  <h2>Add Card</h2>
+  <%= form_for @card, url: user_cards_path(@user.id), html: {method: "create", class: "form-horizontal"} do |f| %>
   <div class="form-group">
+    <span class="col-md-12 text-center">
+      <h2>Add Card</h2>
+    </span>
+  </div>
+  <div class="form-group">
+    <span class="control-label text-right col-md-4">
     <%= f.label 'Card Number' %>
-    <%= f.text_field :number, placeholder: 'Card Number', class: 'form-control' %><br>
+    </span>
+    <span class="text-left col-md-8">
+    <%= f.text_field :number, placeholder: 'Card Number', class: 'form-control' %>
+    </span>
   </div>
   <div class="form-group">
+    <span class="control-label text-right col-md-4">
     <%= f.label 'Category' %>
-    <%= select_tag(:category, options_for_select([['American Express', 1], ['Discover', 2], ['Mastercard', 3], ['VISA', 4]]), class: 'form-control') %><br>
+    </span>
+    <span class="text-left col-md-8">
+    <%= select_tag(:category, options_for_select([['American Express', 1], ['Discover', 2], ['Mastercard', 3], ['VISA', 4]]), class: 'form-control') %>
+    </span>
   </div>
   <div class="form-group">
+    <span class="control-label text-right col-md-4">
     <%= f.label 'Credit Limit' %>
-    <%= f.text_field :credit_limit, placeholder: 'Credit Limit', class: 'form-control' %><br>
+    </span>
+    <span class="text-left col-md-8">
+    <%= f.text_field :credit_limit, placeholder: 'Credit Limit', class: 'form-control' %>
+    </span>
   </div>
   <div class="form-group">
+    <span class="control-label text-right col-md-4">
     <%= f.label 'Expiration Date' %>
-    <%= f.date_field :exp_date, placeholder: 'Expiration Date', class: 'form-control' %><br>
+    </span>
+    <span class="text-left col-md-8">
+    <%= f.date_field :exp_date, placeholder: 'Expiration Date', class: 'form-control' %>
+    </span>
   </div>
   <div class="form-group">
+    <span class="control-label text-right col-md-4">
     <%= f.label 'CVV' %>
-    <%= f.text_field :cvv, placeholder: 'CVV', class: 'form-control' %><br>
+    </span>
+    <span class="text-left col-md-8">
+    <%= f.text_field :cvv, placeholder: 'CVV', class: 'form-control' %>
+    </span>
   </div>
-  <div class="btn btn-default">
-    <%= f.submit 'Add Card' %>
+  <div>
+    <span class="btn btn-block col-md-12">
+      <%= f.submit 'Add Card' %>
+    </span>
   </div>
   <% end %>
 </div>

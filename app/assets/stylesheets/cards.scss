@@ -3,12 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .input-form {
-  width: 30%;
+  width: 80%;
   height: 40%;
 }
 
 table.master td.icon {
   display: image;
+  cursor: pointer;
 }
 
 table.master {
@@ -48,10 +49,5 @@ table.master tr:nth-child(even) td {
 table.master tr:nth-last-child(2) td {
   background-color: rgb(0, 0, 0);
   align: center;
-}
-
-table td a.icon {
-  display: image;
-  padding-left: 30%;
 }
 

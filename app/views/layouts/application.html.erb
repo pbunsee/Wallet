@@ -2,9 +2,14 @@
 <html>
   <head>
     <title>MyWallet</title>
-    <%= stylesheet_link_tag 'application', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    
+    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
@@ -13,7 +18,13 @@
   <nav class='navbar navbar-inverse navbar-fixed-top'>
     <div class='container'>
       <ul class='nav nav-pills navbar-left'>
-        <li> <%= link_to 'Home', root_path %> </li>
+        <% if current_user %>
+          <li> <%= link_to 'Home', user_path(current_user.id) %> </li>
+          <li> <%= link_to 'Add card', new_user_card_path(current_user) %> </li>
+          <li> <%= link_to 'Add account', new_user_account_path(current_user) %> </li>
+        <% else %>
+          <li> <%= link_to 'Home', root_path %> </li>
+        <% end %>
       </ul>
       <div class='navbar-text navbar-right'>
         <% if current_user %>

@@ -1,7 +1,7 @@
 class Users::Accounts::TransactionsController < ApplicationController
 
   def index
-    if params[:user_id].present?
+    if current_user
       @user = User.find current_user
       @transactions = Transaction.all_of_user(@user)
       if params[:account_id].present?
@@ -12,7 +12,7 @@ class Users::Accounts::TransactionsController < ApplicationController
   end
 
   def new
-    if params[:user_id].present?
+    if current_user
       @user = User.find current_user
       if params[:account_id].present?
         @account = Account.find params[:account_id]
@@ -22,18 +22,22 @@ class Users::Accounts::TransactionsController < ApplicationController
   end
 
   def create
-    @transaction = Transaction.new(transaction_params)
-    if @transaction.valid?
-      @transaction.save!
-      redirect_to user_account_transactions_path(current_user, params[:account_id])
-    else
-      flash[:alert] = "There was an error with your submission"
-      render :new
+    if current_user
+      @transaction = Transaction.new(transaction_params)
+      if @transaction.valid?
+        @transaction.save!
+        redirect_to user_account_transactions_path(current_user, params[:account_id])
+      else
+        flash[:alert] = "There was an error with your submission"
+        render :new
+      end
     end
   end
 
   def show
-    @transaction = Transaction.find(params[:id])
+    if current_user
+      @transaction = Transaction.find(params[:id])
+    end
   end
 
   private

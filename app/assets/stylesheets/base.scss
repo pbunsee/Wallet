@@ -29,10 +29,21 @@ nav {
 }
 
 .input-form {
-  width: 30%;
+  width: 80%;
   height: 40%;
 }
 
 .form-group {
   margin-bottom: 5px;
 }
+
+h2 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+table td a.icon {
+  display: image;
+  padding-left: 30%;
+  cursor: pointer;
+}
+

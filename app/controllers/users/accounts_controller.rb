@@ -26,8 +26,8 @@ class Users::AccountsController < ApplicationController
 
       if @account.valid?
         @account.save!
-        #redirect_to accounts_path
-        redirect_to user_path(current_user)
+        #redirect_to user_path(current_user)
+        redirect_to user_accounts_path(current_user)
       else
         flash[:alert] = "There was an error with your submission"
         render :new

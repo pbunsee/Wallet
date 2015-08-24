@@ -1,18 +1,49 @@
-<% if @account.errors.any? %>
-  <ul>
-    <% @account.errors.full_messages.each do |msg| %>
-      <li> <%= msg %> </li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="input-form">
+  <% if @account.errors.any? %>
+    <ul>
+      <% @account.errors.full_messages.each do |msg| %>
+        <li> <%= msg %> </li>
+      <% end %>
+    </ul>
+  <% end %>
 
-<%= form_for @account, url: user_accounts_path(@user.id), html: {method: "create"} do |f| %>
-  <%= f.label :number, placeholder: 'Account Number' %><br>
-  <%= f.text_field :number %>
-  <%= f.label :acctype %>
-  <%= f.select :acctype, ['Cheque','Savings','CD']  %>
-  <%= f.label :balance %>
-  <%= f.text_field :balance %>
-  <%= f.submit 'Add Account' %>
-<% end %>
+  <%= form_for @account, url: user_accounts_path(@user.id), html: {method: "create", class: "form-horizontal"} do |f| %>
+    <div class="form-group">
+      <span class="col-md-12 text-center">
+        <h2>Add Account</h2>
+      </span>
+    </div>
+    <div class="form-group">
+      <span class="control-label text-right col-md-4">
+        <%= f.label :number, 'Account Number' %><br>
+      </span>
+      <span class="text-left col-md-8">
+        <%= f.text_field :number, placeholder: 'Account Number', class: 'form-control' %>
+      </span>
+    </div>
+    <div class="form-group">
+      <span class="control-label text-right col-md-4">
+        <%= f.label :acctype %>
+      </span>
+      <span class="text-left col-md-8">
+        <%= select_tag(:acctype, 
+            options_for_select([['Cheque', 'Cheque'], ['Savings', 'Savings'], ['CD', 'CD']]), 
+            class: 'form-control') %>
+      </span>
+    </div>
+    <div class="form-group">
+      <span class="control-label text-right col-md-4">
+        <%= f.label :balance %>
+      </span>
+      <span class="text-left col-md-8">
+        <%= f.text_field :balance, placeholder: 'Balance', class: 'form-control' %>
+      </span>
+    </div>
+    <div>
+      <span class="btn btn-block col-md-12">
+        <%= f.submit 'Add Account' %>
+      </span>
+    </div>
+  <% end %>
+</div>
 

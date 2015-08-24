@@ -12,11 +12,6 @@
         <%= link_to 'Accounts', user_accounts_path(@user), id: 'list-accounts', class: 'menu-item' %>
       </div>
     </div>
-    <div id="add-payment-sources">
-      <h4><%= "Add payment sources" %></h4>
-      <%= link_to 'Add new card', new_user_card_path(current_user), class: 'menu-item' %> <br>
-      <%= link_to 'Add new account', new_user_account_path(current_user), class: 'menu-item' %> 
-    </div>
   </div>
 
   <div id="incoming">

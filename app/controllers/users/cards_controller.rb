@@ -22,7 +22,7 @@ class Users::CardsController < ApplicationController
 
       if @card.valid?
         @card.save!
-        redirect_to user_cards_path
+        redirect_to user_cards_path(current_user)
       else
         flash[:alert] = "There was an error with your submission"
         render :new

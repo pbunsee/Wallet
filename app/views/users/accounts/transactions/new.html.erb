@@ -6,20 +6,57 @@
   </ul>
 <% end %>
 
-<%= form_for @transaction, url: user_account_transactions_path(@user.id, @account.id), html: {method: "create"}  do |f| %>
-  <%= f.text_field :description,  placeholder: 'Description' %><br>
-  <%= f.text_field :amount,  placeholder: 'Amount' %><br>
-  <%= f.text_field :currency,  placeholder: 'Currency' %><br>
-  <%= f.text_field :transaction_type,  placeholder: 'Transaction Type' %><br>
-  <%= f.text_field :transaction_status, placeholder: 'Transaction Status' %><br>
-  <%= f.text_field :transaction_date,  placeholder: 'Transaction Date' %><br>
-  <%= f.text_field :post_date,  placeholder: 'Post Date' %><br>
-  <%= f.text_field :merchant,  placeholder: 'Merchant' %><br>
-  <%= f.text_field :created_at,  placeholder: 'Created At' %><br>
-  <%= f.text_field :updated_at,  placeholder: 'Updated At' %><br>
-  <%= f.text_field :associated_entity, placeholder: 'Associated Entity' %><br>
-  <%= f.text_field :card_id, placeholder: 'Card ID' %><br>
-  <%= f.text_field :account_id,  placeholder: 'Account ID' %><br>
-  <%= f.submit 'Add Transaction' %>
+<div class="container">
+<%= form_for @transaction, url: user_account_transactions_path(@user.id, @account.id), html: {method: "create", class: "form-horizontal"}  do |f| %>
+  <div class="form-group">
+  <span class="control-label text-right col-md-4"><%= f.label :Description %></span>
+  <span class="text-left col-md-8"><%= f.text_field :description,  placeholder: 'Description', class: 'form-control' %></span>
+  </div>
+  <div class="form-group">
+  <span class="control-label text-right col-md-4"><%= f.label :Amount %></span>
+  <span class="text-left col-md-8"><%= f.text_field :amount,  placeholder: 'Amount', class: 'form-control' %></span>
+  </div>
+  <div class="form-group">
+  <span class="control-label text-right col-md-4"><%= f.label :Currency %></span>
+  <span class="text-left col-md-8"><%= f.text_field :currency,  placeholder: 'Currency', class: 'form-control' %></span>
+  </div>
+  <div class="form-group">
+  <span class="control-label text-right col-md-4"><%= f.label :transaction_type, "Transaction Type" %></span>
+  <span class="text-left col-md-8"><%= f.select(:transaction_type, options_for_select([['Deposit', 1], ['Withdrawal', 2]]), {}, {class: "form-control"}) %></span>
+  </div>
+  <div class="form-group">
+  <span class="control-label text-right col-md-4"><%= f.label :status, "Status" %></span>
+  <span class="text-left col-md-8"><%= f.text_field :transaction_status, placeholder: 'Transaction Status', class: 'form-control' %></span>
+  </div>
+  <div class="form-group">
+  <span class="control-label text-right col-md-4"><%= f.label :transaction_date, "Transaction Date" %></span>
+  <span class="text-left col-md-8"><%= f.date_field :transaction_date, as: :bootstrap_datepicker, input_html: { format: :long }, class: 'form-control' %></span>
+  </div>
+  <div class="form-group">
+  <span class="control-label text-right col-md-4"><%= f.label :post_date, "Post Date" %></span>
+  <span class="text-left col-md-8"><%= f.date_field :post_date,  placeholder: 'Post Date', class: 'form-control' %></span>
+  </div>
+  <div class="form-group">
+  <span class="control-label text-right col-md-4"><%= f.label :merchant, "Merchant" %></span>
+  <span class="text-left col-md-8"><%= f.text_field :merchant,  placeholder: 'Merchant', class: 'form-control' %></span>
+  </div>
+  <div class="form-group">
+  <span class="control-label text-right col-md-4"><%= f.label :associated_entity, "Associated Entity" %></span>
+  <span class="text-left col-md-8"><%= f.select(:associated_entity, options_for_select([['Account', 'account'], ['Card', 'card']]), {}, {class: "form-control"}) %></span>
+  </div>
+  <% if @card %>
+    <div class="form-group">
+    <span class="control-label text-right col-md-4"><%= f.label :card_id, "Card ID" %></span>
+    <span class="text-left col-md-8"><%= f.text_field :card_id, value: @card.id, class: 'form-control' %></span>
+    </div>
+  <% end %>
+  <% if @account %>
+    <div class="form-group">
+    <span class="control-label text-right col-md-4"><%= f.label :account_id, "Account ID" %></span>
+    <span class="text-left col-md-8"><%= f.text_field :account_id, value: @account.id , class: 'form-control' %></span>
+    </div>
+  <% end %>
+  <span class="btn btn-block col-md-12"><%= f.submit 'Add Transaction' %></span>
 <% end %>
+</div>
 

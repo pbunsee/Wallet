@@ -35,6 +35,7 @@ table td {
   border-right: 1px solid;
 }
 
+/*
 table tr:nth-child(odd) td {
   background-color: rgb(230, 230, 230);
 }
@@ -42,8 +43,26 @@ table tr:nth-child(odd) td {
 table tr:nth-child(even) td {
   background-color: rgb(250, 250, 250);
 }
+*/
 
 table td a.dispute-icon {
   display: image;
   padding-left: 30%;
+  cursor: pointer;
 }
+
+form-group {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+container {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.innerWrapper {
+  height  : 100%;
+  width   : 100%;
+  position: relative;
+}
+

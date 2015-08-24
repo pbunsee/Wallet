@@ -2,16 +2,26 @@ class Users::Cards::TransactionsController < ApplicationController
 
   def dispute
     @transaction = Transaction.find(params[:id])
-    respond_to do |format|
-      format.js do
-        #update db status flag
-        @response = "msg-#{@transaction.id}"
+    if @transaction.transaction_status != 'Dispute process started'
+      @transaction.update(transaction_status: 'Dispute process started')
+      respond_to do |format|
+        format.js do
+          puts "in format.js"
+          @response = "msg-#{@transaction.id}"
+        end
+      end
+    else
+      respond_to do |format|
+        format.js do
+          puts "else in format.js"
+          @response = ""
+        end
       end
     end
   end
 
   def index
-    if params[:user_id].present?
+    if current_user
       @user = User.find current_user
       @transactions = Transaction.all_of_user(@user)
       if params[:card_id].present?
@@ -22,7 +32,7 @@ class Users::Cards::TransactionsController < ApplicationController
   end
 
   def new
-    if params[:user_id].present?
+    if current_user
       @user = User.find current_user
       if params[:card_id].present?
         @card = Card.find params[:card_id]
@@ -32,19 +42,23 @@ class Users::Cards::TransactionsController < ApplicationController
   end
 
   def create
-    @transaction = Transaction.new(transaction_params)
+    if current_user
+      @transaction = Transaction.new(transaction_params)
 
-    if @transaction.valid?
-      @transaction.save!
-      redirect_to user_card_transactions_path(current_user, params[:card_id])
-    else
-      flash[:alert] = "There was an error with the transaction submission"
-      render :new
+      if @transaction.valid?
+        @transaction.save!
+        redirect_to user_card_transactions_path(current_user, params[:card_id])
+      else
+        flash[:alert] = "There was an error with the transaction submission"
+        render :new
+      end
     end
   end
 
   def show
-    @transaction = Transaction.find(params[:id])
+    if current_user
+      @transaction = Transaction.find(params[:id])
+    end
   end
 
   private
