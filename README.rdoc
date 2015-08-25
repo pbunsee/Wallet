@@ -1,19 +1,18 @@
-Transaction
-Card
-Account
+Wallet app:
+
+To get the project running, execute:
+    rake db:drop db:migrate db:seed
+
+This project explores the use of nested resources, ajax calls, BCrypt auth and D3js chart.
+
+Nested resources to 3 levels deep:
 User
-#Profile - add later
-User_card
-User_account
+  - Card
+    - Transaction
+  - Account
+    - Transaction
 
-Type of credit cards
-Family card
-Corporate card
-Individual card
-
-Account - held by individual or joint account or corporate/business master account & sub-accounts
-
-Interfaces for:
+Interfaces exist for:
 - Sign-in - using BCrypt
 - Sign-up - using BCrypt
 - Sign-out
@@ -24,36 +23,27 @@ Interfaces for:
 - View an account (detail)
 - Associate a user with a card
 - Associate a user with an account
-Disassociate from a card (i.e. give up the card)
-Setup shared card - Assign family card
-Shared card with master corporate admin management - Do corporate card management
+- View transactions for card or account
+- Dispute a card transaction
+
+- The D3js chart currently gets the data from a static data file. Future enhancement required to aggregate account
+and card data & to render the dynamic dataset.
+
+Future enhancements:
+ - Disassociate from a card (i.e. give up the card)
+ - Setup shared card - Assign family card
+ - Shared card with master corporate admin management 
 
 
-== README
+Future enhancements:
+Cater for various types of credit cards - currently only Individual card is accommodated:
+  Family card
+  Corporate card
+  Individual card
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Future enhancements:
+Cater for jointly held accounts - currently only accounts held by one person or entity is accommodated:
+ -Account - held by individual or joint account or corporate/business master account & sub-accounts
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Future enhancements:
+- Add payment functionality and offers functionality

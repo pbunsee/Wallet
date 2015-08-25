@@ -1,0 +1,12 @@
+{
+  "name": "Customer",
+  "value": 1,
+  "children": [
+    { "name": "Groceries", "value": 5 },
+    { "name": "Household", "value": 5 },
+    { "name": "Mortgage", "value": 68 },
+    { "name": "Vehicle", "value": 12 },
+    { "name": "Medical", "value": 8 },
+    { "name": "Other", "value": 2 }
+  ]
+}

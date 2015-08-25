@@ -1,39 +1,6 @@
-
 <div id="wrapper">
   <h1><%= "Welcome #{@user.firstname} #{@user.lastname}!" %></h1>
-
-  <div id="outgoing">
-    <div id="current-payment-sources">
-      <h4><%= "Current payment sources" %></h4>
-      <div id="list-cards">
-        <%= link_to 'Cards', user_cards_path(@user), id: 'list-cards', class: 'menu-item' %>
-      </div>
-      <div id="list-accounts"> 
-        <%= link_to 'Accounts', user_accounts_path(@user), id: 'list-accounts', class: 'menu-item' %>
-      </div>
-    </div>
+  <div id="spend_this_month">
+    <h3 id="expenditure-title">Expenditure this month</h3>
   </div>
-
-  <div id="incoming">
-    <div id="pay">
-      <h4><%= "Payments" %></h4>
-      <div id="make-payment">
-        <a href="#", class='menu-item'>Make payment</a>
-      </div>
-      <div id="overdue-payments">
-        <a href="#", class='menu-item'>Overdue payments</a>
-      </div>
-    </div>
-    <div id="offers">
-      <h4><%= "Offers" %></h4>
-      <a href="#", class='menu-item'>Saved offers</a> <br>
-      <a href="#", class='menu-item'>New offers</a>
-    </div>
-  </div>
-
 </div>
-
-
-
- 
- 

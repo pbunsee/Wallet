@@ -1,6 +1,5 @@
 
 function addRowHandlers() {
-    alert("ah");
     var table = document.getElementById("card");
     var rows = table.getElementsByTagName("tr");
     for (i = 0; i < rows.length; i++) {
@@ -11,7 +10,7 @@ function addRowHandlers() {
                 return function() { 
                                         var cell = row.getElementsByTagName("td")[0];
                                         var id = cell.innerHTML;
-                                        alert("id:" + id);
+                                        //alert("id:" + id);
                                  };
             };
 

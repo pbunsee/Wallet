@@ -1,3 +1,6 @@
+<div>
+<%= link_to 'Add Transaction', new_user_account_transaction_path(current_user.id, @account.id) %>
+</div>
 
 <table class="transaction">
   <th>Transaction date</th>
@@ -11,4 +14,3 @@
   <% end %>
 </table>  
 
-<%= link_to 'Add new card Transaction', new_user_account_transaction_path(current_user, @account.id) %> 

@@ -6,14 +6,12 @@ class Users::Cards::TransactionsController < ApplicationController
       @transaction.update(transaction_status: 'Dispute process started')
       respond_to do |format|
         format.js do
-          puts "in format.js"
           @response = "msg-#{@transaction.id}"
         end
       end
     else
       respond_to do |format|
         format.js do
-          puts "else in format.js"
           @response = ""
         end
       end

@@ -1,5 +1,7 @@
-
-<table class="transaction">
+<div>
+<%= link_to 'Add Transaction', new_user_card_transaction_path(current_user.id, @card.id) %>
+</div>
+<table class="transaction table-striped table-hover"> 
   <th>Transaction date</th>
   <th>Merchant</th>
   <th>Description</th>

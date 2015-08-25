@@ -1,30 +1,96 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MyWallet</title>
-    
+    <meta charset="utf-8">
     <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js' %>
     <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js' %>
-
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    
     <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js' %>
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MyWallet</title>
   </head>
   <body>
 
   <nav class='navbar navbar-inverse navbar-fixed-top'>
     <div class='container'>
-      <ul class='nav nav-pills navbar-left'>
-        <% if current_user %>
-          <li> <%= link_to 'Home', user_path(current_user.id) %> </li>
-          <li> <%= link_to 'Add card', new_user_card_path(current_user) %> </li>
-          <li> <%= link_to 'Add account', new_user_account_path(current_user) %> </li>
-        <% else %>
+      <ul class='nav nav-tabs navbar-left'>
+    <% if current_user %>
+        <li> <%= link_to 'Home', user_path(current_user.id) %> </li>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        Add Payment Source<span class="caret"></span>
+        </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="payment-sources">
+              <li role="presentation">
+                <%= link_to 'Add Card', new_user_card_path(current_user), id: 'add-card', 
+                      role: 'menuitem', tabindex: '-1'  %>
+              </li>
+              <li role="presentation">
+                <%= link_to 'Add Account', new_user_account_path(current_user), id: 'add-account', 
+                      role: 'menuitem', tabindex: '-1'  %>
+              </li>
+            </ul>
+        </li>
+        <li role="presentation" class="dropdown">
+            <ul class="dropdown-menu" role="menu" aria-labelledby="payment-sources">
+              <li role="presentation">
+                <%= link_to 'Add Card', new_user_card_path(current_user), id: 'add-card', 
+                      role: 'menuitem', tabindex: '-1'  %>
+              </li>
+              <li role="presentation">
+                <%= link_to 'Add Account', new_user_account_path(current_user), id: 'add-account', 
+                      role: 'menuitem', tabindex: '-1'  %>
+              </li>
+            </ul>
+        </li>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        Statements<span class="caret"></span>
+        </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="statements">
+              <li role="presentation">
+                <%= link_to 'Cards', user_cards_path(current_user), id: 'list-cards', 
+                      role: 'menuitem', tabindex: '-1'  %>
+              </li>
+              <li role="presentation">
+                <%= link_to 'Accounts', user_accounts_path(current_user), id: 'list-accounts', 
+                      role: 'menuitem', tabindex: '-1'  %>
+              </li>
+            </ul>
+        </li>
+        <li role="presentation" class="dropdown">
+           <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        Payments<span class="caret"></span>
+           </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="statements">
+              <li role="presentation">
+                <a role="menuitem" class="payments" tabindex="-1" href="#">Make Payment</a>
+              </li>
+              <li role="presentation">
+              <a role="menuitem" class="payments" tabindex="-1" href="#">Overdue Payments</a>
+              </li>
+            </ul>
+        </li>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        Offers<span class="caret"></span>
+        </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="payments">
+              <li role="presentation">
+                <a role="menuitem" class="offers" tabindex="-1" href="#">New Offers</a>
+              </li>
+              <li role="presentation">
+                <a role="menuitem" class="offers" tabindex="-1" href="#">Saved Offers</a>
+              </li>
+            </ul>
+        </li>
+      <% else %>
           <li> <%= link_to 'Home', root_path %> </li>
-        <% end %>
+      <% end %>
       </ul>
       <div class='navbar-text navbar-right'>
         <% if current_user %>
