@@ -1,7 +1,7 @@
 $(document).on('ready page:load',function(){
   console.log("calling customer_spend.js");
   var width = 800,
-     height = 600, 
+     height = 580, 
      margin = 5;
 
   var colorScale = d3.scale.category10();
@@ -36,10 +36,17 @@ $(document).on('ready page:load',function(){
         .attr("stroke-width", "2");
 
     node.append("text")
-        .text(function (d){ return d.children ? "" : d.name ; })
+        .text(function (d){ return d.children ? "" : d.name; })
         .attr("fill", "#000")
         .attr("x", 0)
-        .attr("dy", ".35em")
+        .attr("dy", ".15em")
+        .attr("text-anchor", "middle")
+
+    node.append("text")
+        .text(function (d){ return d.children ? "" : d.value + "%" ; })
+        .attr("fill", "#000")
+        .attr("x", 0)
+        .attr("dy", ".99em")
         .attr("text-anchor", "middle")
   });
 });
