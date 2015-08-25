@@ -1,49 +1,47 @@
 Wallet app:
 
-To get the project running, execute:
-    rake db:drop db:migrate db:seed
-
 This project explores the use of nested resources, ajax calls, BCrypt auth and D3js chart.
 
+To get the project running, execute:
+    bundle install
+    rake db:drop db:migrate db:seed
+
+Note that the login id is the username (not email address) 
+  - Refer to db/seeds.rb file for the staged users dataset.
+
+
 Nested resources to 3 levels deep:
-User
+- User
   - Card
     - Transaction
   - Account
     - Transaction
 
 Interfaces exist for:
-- Sign-in - using BCrypt
-- Sign-up - using BCrypt
-- Sign-out
-- Add card
-- View cards
-- View a card (detail)
-- View accounts
-- View an account (detail)
-- Associate a user with a card
-- Associate a user with an account
-- View transactions for card or account
-- Dispute a card transaction
+  - Sign-in - using BCrypt
+  - Sign-up - using BCrypt
+  - Sign-out
+  - Add card
+  - View cards
+  - View accounts
+  - View an account (detail)
+  - Associate a user with a card
+  - Associate a user with an account
+  - View transactions for card or account
+  - Dispute a card transaction
 
-- The D3js chart currently gets the data from a static data file. Future enhancement required to aggregate account
-and card data & to render the dynamic dataset.
+  - The D3js chart currently gets the data from a static data file in public folder. 
 
 Future enhancements:
- - Disassociate from a card (i.e. give up the card)
- - Setup shared card - Assign family card
- - Shared card with master corporate admin management 
+  - Aggregate account and card data & render the dynamic dataset as D3js chart.
 
+  - Disassociate from a card (i.e. give up the card)
 
-Future enhancements:
-Cater for various types of credit cards - currently only Individual card is accommodated:
-  Family card
-  Corporate card
-  Individual card
+  Cater for various types of credit cards - currently only Individual card is accommodated:
+  - Family card
+  - Corporate card (Shared card with master corporate admin management)
 
-Future enhancements:
-Cater for jointly held accounts - currently only accounts held by one person or entity is accommodated:
- -Account - held by individual or joint account or corporate/business master account & sub-accounts
+  Cater for jointly held accounts - currently only accounts held by one person or entity is accommodated:
+  - Account - held by individual or joint account or corporate/business master account & sub-accounts
 
-Future enhancements:
-- Add payment functionality and offers functionality
+  - Add payment functionality and offers functionality
