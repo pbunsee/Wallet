@@ -3,6 +3,9 @@
     <td> <%= card.category %> </td>
     <td> <%= card.credit_limit %> </td>
     <td> <%= card.exp_date %> </td>
+    <!--
     <td> <%= card.cvv %> </td>
+    -->
+    <td> <%= render text: '****' %> </td>
     <td> <%= link_to image_tag('more_info.png'), user_card_transactions_path(current_user, card.id), class: 'icon'  %> </td> 
   </tr>
